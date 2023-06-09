@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+
+#Unused in this build
+xrdb -merge ~/.Xresources
+pidof st | xargs kill -s USR1
+xdotool key super+F5

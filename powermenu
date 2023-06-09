@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+
+DMENU='dmenu -c -l 6'
+choice=$(echo -e "lock\nlogout\nshutdown\nreboot" | $DMENU)
+
+case "$choice" in
+  lock) slock  & ;;
+  logout) kill $(pidof xinit) & ;;
+  shutdown) poweroff -h & ;;
+  reboot) reboot & ;;
+  #suspend) sudo pm-suspend & ;;
+  #hibernate) sudo pm-hibernate & ;;
+esac
